@@ -1290,6 +1290,7 @@ ul {
   font-weight: bold;
   margin-top: 10px;
   margin-bottom: 10px;
+  /* transition: 0.5S; */
 }
 .stats .box .text {
   color: var(--main-color);

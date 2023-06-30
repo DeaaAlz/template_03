@@ -28,8 +28,19 @@ let counter = setInterval(() => {
   }
 }, 1000);
 
+
+
+
+// progress for skils && number for stats
 let section = document.querySelector(".our-skills");
 let spans = document.querySelectorAll(".the-progress span");
+
+//number for stats
+let nums = document.querySelectorAll(".stats .number");
+let statsSection = document.querySelector(".stats");
+let started = false; // Function Started ? No
+
+
 
 window.onscroll = function () {
   if (window.scrollY >= section.offsetTop) {
@@ -38,4 +49,26 @@ window.onscroll = function () {
       span.style.width = span.dataset.width;
     });
   }
+
+  if (window.scrollY >= statsSection.offsetTop) {
+    if (!started) {
+      nums.forEach((num) => startCount(num));
+    }
+    started = true;
+  }
+
 };
+
+
+
+function startCount(el) {
+  let goal = el.dataset.goal;
+  let count = setInterval(() => {
+    el.textContent++;
+    if (el.textContent == goal) {
+      clearInterval(count);
+    }
+  }, 2000 / goal);
+}
+
+
